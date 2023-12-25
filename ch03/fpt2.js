@@ -20,7 +20,7 @@ const products = [
 
 ];
 
-app.get('/product', (req, res) => res.render('fpt2_products', { products: products }))
+app.get('/product', (req, res) => res.render('fpt2_product', { products: products }))
 
 app.use((req, res) => {
     res.status(404)
