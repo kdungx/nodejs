@@ -3,6 +3,7 @@ const expressHandlebars = require('express-handlebars').engine;
 const fortune = require('./lib/fortune.js')
 const app = express()
 
+
 //configure Handlebars view engine 
 
 app.engine('handlebars', expressHandlebars({
@@ -13,11 +14,11 @@ app.set('view engine','handlebars')
 const port = process.env.PORT ||3000
 app.use(express.static(__dirname + '/public'))
 
-app.get('/',(req,res)=>res.render('home'))
-app.get('/about', (req,res)=>{
-    res.render('about',{fortune: fortune.getFortune() })
-})
+app.get('/home',(req,res)=>res.render('home'))
 
+app.get('/about', (req, res) => {
+    res.render('about', { fortune: fortune.getFortune(), title: 'about' });
+});
 
 //custom 404 page
 
